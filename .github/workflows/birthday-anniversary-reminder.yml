@@ -1,0 +1,30 @@
+name: Birthday and Anniversary Reminder
+
+on:
+  schedule:
+    - cron: "0 5 * * *" # Runs at 5AM UTC which is midnight EST
+  workflow_dispatch:
+
+env:
+  YAML_FILE_NAME: ${{ vars.birthday_yaml }}
+  DISCORD_WEBHOOK: ${{ secrets.discord_birthday_wh }}
+
+jobs:
+  run-reminder:
+    runs-on: ubuntu-latest
+    container:
+      image: manickpillai/manick-python:1.0
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Pull yml file
+        env:
+          GH_URL: ${{ vars.GH_URL }}
+          TOKEN: ${{ secrets.PAT_GH_URL }}
+        run: |
+          curl -H "Authorization: token ${{ env.TOKEN }}" ${{ env.GH_URL }} -o ${{ env.YAML_FILE_NAME }}
+
+      - name: Run code
+        run: python main.py
