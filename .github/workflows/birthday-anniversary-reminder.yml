@@ -29,5 +29,8 @@ jobs:
         with:
           python-version: "3.10"
 
+      - name: Installing dependency
+        run: pip install -r requirements.txt
+
       - name: Run code
         run: python main.py
