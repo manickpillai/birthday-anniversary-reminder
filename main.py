@@ -1,8 +1,6 @@
 import yaml
 from datetime import date
 import os
-import urllib.request
-import urllib.error
 import requests
 from typing import Tuple
 
