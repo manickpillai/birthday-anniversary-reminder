@@ -2,7 +2,8 @@ name: Birthday and Anniversary Reminder
 
 on:
   schedule:
-    - cron: "20 12 * * *" # Runs at 5AM UTC which is midnight EST
+    - cron: "0 5 * * *" # Runs at 5AM UTC which is midnight EST
+  workflow_dispatch:
 
 env:
   MODE: "pipeline"
