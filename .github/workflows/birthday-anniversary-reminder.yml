@@ -24,8 +24,6 @@ jobs:
         run: |
           curl -H "Authorization: token ${{ env.TOKEN }}" ${{ env.GH_URL }} -o ${{ vars.YAML_FILE_NAME }}
 
-      - run: ls -lrt
-
       - name: Python env setup
         uses: actions/setup-python@v5
         with:

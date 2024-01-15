@@ -72,7 +72,7 @@ def main():
     if collected_list:
         notify_discord(today_date,collected_list)
     else:
-        print("No brithday or reminder found for today")
+        print("No birthday or reminder found for today")
 
 if __name__ == "__main__":
     main()
