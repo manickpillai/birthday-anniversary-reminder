@@ -1,3 +1,5 @@
+[![Birthday and Anniversary Reminder](https://github.com/manickpillai/birthday-anniversary-reminder/actions/workflows/birthday-anniversary-reminder.yml/badge.svg)](https://github.com/manickpillai/birthday-anniversary-reminder/actions/workflows/birthday-anniversary-reminder.yml)
+
 ### Birthday and Anniversary Reminder
 
 A python program which pulls yaml file from a private repo and sends notification to a personal discord server for birthday or anniversary on current day.
