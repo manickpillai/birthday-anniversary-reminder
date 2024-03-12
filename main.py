@@ -42,8 +42,12 @@ def get_today_list(file_content: dict) -> Tuple[list, str]:
         str: the Month and year e.g. January 14
     """
     today_month, today_date = date.today().strftime("%B-%-d").split("-")
-    collected_details = file_content.get(today_month).get(int(today_date))
-    return collected_details, f"{today_month}-{today_date}"
+    try:
+        collected_details = file_content.get(today_month).get(int(today_date))
+        return collected_details, f"{today_month}-{today_date}"
+    except AttributeError:
+        print(f'No entry found in yaml reference file for {today_month}-{today_date}\nExiting program."')
+        os._exit(0)
 
 
 def notify_discord(today_date: str, message_list: list):
